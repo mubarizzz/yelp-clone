@@ -1,0 +1,40 @@
+<%- include ("../partials/header.ejs"); %>
+
+
+
+<div class="container">
+    
+    
+    <div class="row">
+    <div class="col-12 text-center" style="margin: 30px 0 0 0;">
+        <h1>EDIT Comment</h1>
+    </div>
+    </div>
+    <div class="row row-content justify-content-center" style="margin: 30px auto;">
+        
+        <div class="col-md-5">
+            <form action="/campgrounds/<%= camp_id %>/comments/<%= comm._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="campName" value="<%= comm.text %>" name="comment[text]" required>
+
+                </div>
+                
+        
+      <button type="submit" class="btn btn-primary btn-sm btn-block">Edit Comment</button>
+      <a href="/campgrounds">Go Back</a>
+                </div>
+                
+            </form>
+            
+        </div>
+        
+    </div>
+
+    
+        
+</div>
+  
+
+
+
+<%- include ("../partials/footer.ejs"); %>

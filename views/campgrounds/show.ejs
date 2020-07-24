@@ -1,0 +1,75 @@
+<%- include ("../partials/header.ejs"); %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" style="margin-bottom: 2em; margin-top: 3em;">
+            <p class="lead">YelpCamp</p>
+                <div class="list-group">
+                    <li class="list-group-item active">Info 1</li>
+                    <li class="list-group-item">Info 2</li>
+                    <li class="list-group-item">Info 3</li>
+                </div>
+        </div>
+                <div class="col-md=9">
+                    <div class="card" style="margin: 2em; width: 45rem;">
+                        <img class="img-fluid" src="<%= camp.image %>" style="height: 25em; width: 45em;">
+                        <div class="card-body" style="padding: 15px;">
+                            <h4 class="text-right">$<%= camp.price %>/night</h4>
+                            <h3 style="color: rgb(0, 132, 255);"><%= camp.name %></h3>
+                            <p><%= camp.description %></p>
+                            <p><em>Submitted By <%= camp.author.username %></em></p>
+                            <% if(currentUser && camp.author.id.equals(currentUser._id)) { %>
+                            <a class="btn btn-warning btn-sm" href="/campgrounds/<%= camp._id %>/edit">EDIT</a>
+                            <form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                    <button class="btn btn-danger btn-sm">DELETE</button>
+                            </form>
+                            <% } %>
+                        </div>
+                          
+                    </div>
+
+                   
+                    
+                </div>
+            
+                
+        
+    </div>
+    <hr>
+    <div style="margin: 2em;">
+    <div class="well">
+        <div class="text-right">
+            <a class="btn btn-success btn-sm" href="/campgrounds/<%= camp._id %>/comments/new">Add a comment</a>
+            <form action=""
+        </div>
+        
+    </div>
+                        <% camp.comments.forEach((comm) => { %>
+                            
+                                <strong> <%= comm.author.username %>: </strong>
+                                
+                                <p>
+                                    <%= comm.text %>
+                                </p>
+                                    <% if(currentUser && comm.author.id.equals(currentUser._id)) { %>
+
+                                    
+                                    <a class="btn btn-warning btn-sm" href="/campgrounds/<%= camp._id %>/comments/<%= comm._id %>/edit">EDIT</a>
+                                    <form action="/campgrounds/<%= camp._id %>/comments/<%= comm._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                        <input class="btn btn-danger btn-sm" type="submit" value="DELETE">
+                                    </form>
+                                    <br>
+                                    <br>
+                                    <% } %>
+
+
+                               
+                            
+                                
+                        
+                        
+                        <% }) %>
+            </div>
+</div>
+
+
