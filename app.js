@@ -20,7 +20,7 @@ var commentRoutes = require('./routes/comments'),
 
 const seedDB = require('./seeds');
 mongoose
-	.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/yelp-clone', {
+	.connect('mongodb://localhost:27017/yelp-clone', {
 		useFindAndModify: false,
 		useNewUrlParser: true,
 		useUnifiedTopology: true
