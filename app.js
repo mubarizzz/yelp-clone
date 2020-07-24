@@ -20,15 +20,11 @@ var commentRoutes = require('./routes/comments'),
 
 const seedDB = require('./seeds');
 mongoose
-	.connect(
-		process.env.MONGO_URL ||
-			'mongodb+srv://mubariz:Hitchcloak69@@cluster0.eoedk.mongodb.net/yelp-clone?retryWrites=true&w=majority',
-		{
-			useFindAndModify: false,
-			useNewUrlParser: true,
-			useUnifiedTopology: true
-		}
-	)
+	.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/yelp-clone', {
+		useFindAndModify: false,
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
 	.then(() => console.log('Connected To DB!'))
 	.catch((error) => console.log(error.message));
 
