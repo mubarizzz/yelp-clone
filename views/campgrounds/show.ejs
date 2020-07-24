@@ -10,9 +10,9 @@
                     <li class="list-group-item">Info 3</li>
                 </div>
         </div>
-                <div class="col-md=9">
-                    <div class="card" style="margin: 2em; width: 45rem;">
-                        <img class="img-fluid" src="<%= camp.image %>" style="height: 25em; width: 45em;">
+                <div class="col-md-9">
+                    <div class="card shadow-sm" style="margin-top: 3em;">
+                        <img class="card-img-top" src="<%= camp.image %>">
                         <div class="card-body" style="padding: 15px;">
                             <h4 class="text-right">$<%= camp.price %>/night</h4>
                             <h3 style="color: rgb(0, 132, 255);"><%= camp.name %></h3>
@@ -37,14 +37,16 @@
     </div>
     <hr>
     <div style="margin: 2em;">
-    <div class="well">
-        <div class="text-right">
-            <a class="btn btn-success btn-sm" href="/campgrounds/<%= camp._id %>/comments/new">Add a comment</a>
-            <form action=""
+        <div class="card shadow-sm mt-4" id="comments">
+            
+        <div class="text-right" style="margin: 1em;">
+            <a class="btn btn-success" href="/campgrounds/<%= camp._id %>/comments/new">Add a comment</a>
         </div>
         
-    </div>
+    
+    <ul class="list-group list-group-flush">
                         <% camp.comments.forEach((comm) => { %>
+                            <li id="commentItem" class="list-group-item list-group-item-secondary">
                             
                                 <strong> <%= comm.author.username %>: </strong>
                                 
@@ -60,7 +62,9 @@
                                     </form>
                                     <br>
                                     <br>
+                                </li>
                                     <% } %>
+                                </ul>
 
 
                                
@@ -72,4 +76,4 @@
             </div>
 </div>
 
-
+</div>
