@@ -1,3 +1,4 @@
+var PORT = process.env.PORT || 3002;
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -20,11 +21,15 @@ var commentRoutes = require('./routes/comments'),
 
 const seedDB = require('./seeds');
 mongoose
-	.connect('mongodb://localhost:27017/yelp-clone', {
-		useFindAndModify: false,
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	})
+	.connect(
+		process.env.MONGO_URL ||
+			'mongodb+srv://mubariz:Hitchcloak69@@cluster0.eoedk.mongodb.net/yelp-clone?retryWrites=true&w=majority',
+		{
+			useFindAndModify: false,
+			useNewUrlParser: true,
+			useUnifiedTopology: true
+		}
+	)
 	.then(() => console.log('Connected To DB!'))
 	.catch((error) => console.log(error.message));
 
@@ -72,6 +77,6 @@ app.get('/*', (req, res) => {
 	res.send('<h1>This Page Does not Exist</h1>');
 });
 
-app.listen(3002, () => {
+app.listen(PORT, () => {
 	console.log('Server started');
 });
