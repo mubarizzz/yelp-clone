@@ -41,11 +41,10 @@ app.use(flash());
 //seedDB();
 
 //PASSPORT CONFIGURATION
-var session2 = require('express-session');
-var MongoStore = require('connect-mongo')(session2);
-const { session } = require('passport');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 app.use(
-	session2({
+	session({
 		secret: 'my apps secret',
 		resave: false,
 		saveUninitialized: false,
