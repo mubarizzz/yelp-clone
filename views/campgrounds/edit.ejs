@@ -26,7 +26,7 @@
       <input type="text" class="form-control" id="im" value="<%= camp.image %>" name="campg[image]" required>
                 </div>
                 <div class="form-group">
-      <input type="text" class="form-control" id="des" value="<%= camp.description %>" name="campg[description]" required>
+      <textarea class="form-control" id="des" name="campg[description]" required><%= camp.description %></textarea>
                 </div>
       <button type="submit" class="btn btn-primary btn-sm btn-block">Edit Campground</button>
       <a href="/campgrounds">Go Back</a>
