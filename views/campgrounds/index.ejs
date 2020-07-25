@@ -3,10 +3,10 @@
 <div class="container">
 <header class="jumbotron">
   <div class="container">
-    <h1>Welcome To YelpCamp!!</h1>
+    <h1>Welcome To YelpCamp <i class="fa fa-yelp"></i></h1>
     <p class="lead">Browse Through The Best Campgrounds In The World...</p>
     <p>
-      <a class="btn btn-success btn-lg" role="button" href="/campgrounds/new">Add Campground</a>
+      <a class="btn btn-success btn-lg" role="button" href="/campgrounds/new"><i class="fas fa-plus"></i> Add Campground</a>
     </p>
   </div>
 </header>
@@ -24,7 +24,7 @@
       <img src="<%= ground.image %>" class="card-img-top" alt="campground">
       <div class="card-body" style="background-color: rgb(241, 234, 234);">
         <h5 class="card-text"><%= ground.name %></h5>
-        <a href="/campgrounds/<%= ground._id %>" class="btn btn-primary btn-sm">More Info</a>
+        <a href="/campgrounds/<%= ground._id %>" class="btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> More Info</a>
       </div>
     </div>
   </div>
